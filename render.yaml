@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: pms-project-management-syncboard
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: ADMIN_NAME
+        value: PMS Administrator
+      - key: ADMIN_USERNAME
+        value: admin@login
+      - key: ADMIN_EMAIL
+        value: admin@pms.local
+      - key: ADMIN_PASSWORD
+        value: admin@123
+      - key: MEMBER_NAME
+        value: PMS Project Member
+      - key: MEMBER_USERNAME
+        value: login@pms
+      - key: MEMBER_EMAIL
+        value: login@pms.local
+      - key: MEMBER_PASSWORD
+        value: pms@123
